@@ -1,0 +1,32 @@
+[{
+    "date": "-300",
+    "description": "Pilgrims travel to the healing temples of Asclepieion to be cured of their ills. After a ritual purification the followers bring offerings or sacrifices.",
+    "lang": "en",
+    "category1": "By place",
+    "location": "Greece",
+    "granularity": "year"
+},
+{
+	"date": "1037",
+	"description": "Ferdinand I becomes the king of Castile and Leon.",
+	"lang": "en",
+	"category1": "By place",
+	"category2": "Europe",
+	"granularity": "year"
+},{
+	"date": "1037",
+	"description": "Ferdinand I becomes the king of Castile and Leon.",
+	"lang": "en",
+	"category1": "By place",
+	"category2": "Europe",
+	"granularity": "year"
+},
+{
+	"date": "1037",
+	"description": "Ferdinand I becomes the king of Castile and Leon.",
+	"lang": "en",
+	"category1": "By place",
+	"category2": "Europe",
+	"granularity": "year"
+}
+]

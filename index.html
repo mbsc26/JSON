@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Follow Along of Brad Traversy</title>
+    <style>
+        .flex{
+            display: grid;
+        }
+        .event-card{
+            margin: 16px;
+            padding:16px;
+            background-color: bisque;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="hist-events" class="flex">
+
+
+    </div>
+    
+    <script>
+        //local JS
+        var hist = {
+            date: "-300",
+            description: "Pilgrims travel to the healing temples of Asclepieion to be cured of their ills. After a ritual purification the followers bring offerings or sacrifices.",
+            lang: "en",
+            category1: "By place",
+            location: "Greece",
+            granularity: "year"
+        }
+
+        newhist = JSON.stringify(hist);
+        console.log(newhist[0].date);
+
+        //JS variable
+        var person = {
+            name : "Brad"
+        }
+
+        //valid JSON 
+        var person1 = {
+            "name": "Traversy"
+        }
+
+        //Converting local JS into JSON
+        newperson = JSON.stringify(person);
+
+        //console.log(hist.description);
+
+        //Importing an external JSON into code to access its data
+        var xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function(){
+
+            if (this.readyState == 4 && this.status == 200) {
+
+                var response = JSON.parse(xhttp.responseText);
+
+                console.log(response[0].description);
+
+                var output = '';
+
+                for(var i = 0; i < response.length; i++){
+                    output += '<div class="event-card">'
+                        +'<p>'+ response[i].date + '</p>'
+                        +'<p>'+ response[i].description + '</p>'
+                        +'<p>'+ response[i].category2 + '</p>'
+                        +'</div>' ;
+
+                }
+
+                document.getElementById('hist-events').innerHTML = output;
+
+                
+
+        }
+    }
+
+        xhttp.open("GET", "events.json", true);
+        xhttp.send();
+
+    </script>
+</body>
+</html>
+
+<!--NOTES
+
+1. Conversion back and forth between JS and JSON is possible
+2. For a JS 'stringified' into JSON, its members can't be accessed and 'undefined' is shown. TO access members, the stringified form must be parsed  back to JS.
+3. [?] Parse an external JSON file in order to loop through it to output data into a webpage.
+4. Importing an external JSON into code to use it: Done via AJAX
+5. Problem (Cross origin-requests only supported for protocol schemes:http, data, chrome, chrome-extension, https.). Solution is to run web app via a server (LiveServer/XAMPP)
+6. Even if you use external JSON, member access will result in "undefined" and it must be parsed to use JS for member access.
+7. For JSON arrays fo objects i.e. [{ "a":"b", "a":"d"}] type, member access is done via the JS variable which stores the parsed imported JSON file e.g. var x. console.log(x[0].a);
+8. The output in the HTML page from external JSON is coded inside the onreadystate function.
+
+-->
