@@ -8,8 +8,13 @@
     <style>
         .flex{
             display: grid;
+            grid-template-columns: auto auto auto;
+            width: 1000px;
+            margin: auto;
+
         }
         .event-card{
+            width: 250px;
             margin: 16px;
             padding:16px;
             background-color: bisque;
@@ -17,7 +22,7 @@
     </style>
 </head>
 <body>
-
+    <h1 style="text-align: center;">Historical Events</h1>
     <div id="hist-events" class="flex">
 
 
@@ -65,7 +70,7 @@
 
                 var output = '';
 
-                for(var i = 0; i < response.length; i++){
+                for(var i = 0; i < 100; i++){
                     output += '<div class="event-card">'
                         +'<p>'+ response[i].date + '</p>'
                         +'<p>'+ response[i].description + '</p>'
@@ -81,7 +86,7 @@
         }
     }
 
-        xhttp.open("GET", "events.json", true);
+        xhttp.open("GET", "history1.json", true);
         xhttp.send();
 
     </script>
